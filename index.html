@@ -1,17 +1,61 @@
-<input 
-    id="searchInput" 
-    type="text" 
-    placeholder="Search..."
-    onkeydown="handleSearch(event)"
->
-
-<script>
-function handleSearch(event) {
-    if (event.key === 'Enter') {
-        const query = document.getElementById('searchInput').value.trim();
-        if (query !== "") {
-            window.location.href = "results.html?q=" + encodeURIComponent(query);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Search Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-    }
-}
-</script>
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #6a5acd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-box">
+        <input 
+            id="searchInput" 
+            type="text" 
+            placeholder="Search..."
+            onkeydown="handleSearch(event)"
+        >
+    </div>
+
+    <script>
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                const query = document.getElementById('searchInput').value.trim();
+                if (query !== "") {
+                    // Send user to YOUR results page
+                    window.location.href = "results.html?q=" + encodeURIComponent(query);
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
