@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+
+<h2 id="title"></h2>
+<div id="results"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const query = params.get("q");
+
+document.getElementById("title").textContent = "Results for: " + query;
+
+// Example fake results (you can customize)
+const results = [
+    { title: "CrazyGames - Play Now", url: "https://www.crazygames.com" },
+    { title: "Popular Games on CrazyGames", url: "https://www.crazygames.com/hot" },
+    { title: "Bloxd.io on CrazyGames", url: "https://www.crazygames.com/game/bloxd-io" }
+];
+
+let html = "";
+results.forEach(r => {
+    html += `<p><a href="${r.url}" target="_blank">${r.title}</a></p>`;
+});
+
+document.getElementById("results").innerHTML = html;
+</script>
+
+</body>
+</html>
